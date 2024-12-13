@@ -1,0 +1,15 @@
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+
+def create_model():
+    model = keras.Sequential([
+        layers.Dense(64, activation='relu', input_shape=(784,)),
+        layers.Dense(10, activation='softmax')
+    ])
+    model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+    return model
+
+if __name__ == "__main__":
+    model = create_model()
+    print("Model is ready to train.")
